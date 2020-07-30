@@ -8,4 +8,6 @@ editor_options:
   chunk_output_type: console
 ---
 
-Welcome to my research website.
+I ran S-LDSC and Torus on m6A annotations of 8 tissues: brain, heart, kidney, liver, lung, muscle, placenta, and stomach. For S-LDSC, I used a subset of the baseline LD annotations located here: RCC:/project2/xinhe/kevinluo/ldsc/annot/ldscores/baseline_gene_MAF_LD/. I did this for 9 GWAS: BMI, CAD, HDL, Height, Intelligence, IBD, LDL, RA, and Schizophrenia. I also ran Torus for blood pressure GWAS: diastolic blood pressure (DBP), pulse pressure (DBP), and systolic blood pressure (SBP). 
+
+[S-LDSC and Torus Analysis](sldsc_torus.html)
