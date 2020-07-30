@@ -1,7 +1,7 @@
-name: "m6A_sldsc_torus_Xiao"
+name: m6A_sldsc_torus_Xiao
 output_dir: ../docs
 navbar:
-  title: "m6A_sldsc_torus_Xiao"
+  title: m6A_sldsc_torus_Xiao
   left:
   - text: Home
     href: index.html
@@ -9,6 +9,10 @@ navbar:
     href: about.html
   - text: License
     href: license.html
+  right:
+  - icon: fa-github
+    text: Source code
+    href: https://github.com/cdu8/m6A_sldsc_torus_Xiao
 output:
   workflowr::wflow_html:
     toc: yes
