@@ -9,7 +9,9 @@ editor_options:
 
 ## **Introduction**
 
-I ran S-LDSC and Torus on m6A annotations of 8 tissues: brain, heart, kidney, liver, lung, muscle, placenta, and stomach. For S-LDSC, I used a subset of the baseline LD annotations located here: RCC:/project2/xinhe/kevinluo/ldsc/annot/ldscores/baseline_gene_MAF_LD/. I did this for 9 GWAS: BMI, CAD, HDL, Height, Intelligence, IBD, LDL, RA, and Schizophrenia. I also ran Torus for blood pressure GWAS: diastolic blood pressure (DBP), pulse pressure (DBP), and systolic blood pressure (SBP). 
+I ran S-LDSC and Torus on m6A annotations of 8 tissues: brain, heart, kidney, liver, lung, muscle, placenta, and stomach. For S-LDSC, I used two baseline models: 
+
+A subset of the baseline LD annotations located here: RCC:/project2/xinhe/kevinluo/ldsc/annot/ldscores/baseline_gene_MAF_LD/ and (2). I did this for 9 GWAS: BMI, CAD, HDL, Height, Intelligence, IBD, LDL, RA, and Schizophrenia. I also ran Torus for blood pressure GWAS: diastolic blood pressure (DBP), pulse pressure (DBP), and systolic blood pressure (SBP). 
 
 m6A annotations used are from this paper: Xiao et al. The RNA N6-methyladenosine modification landscape of human fetal tissues. Nature 2019.
 
@@ -24,7 +26,7 @@ Because the GWAS summary statistics were based on the hg19 map, the m6A annotati
 
 ```{r annotations and traits}
 annot_list <- c("brain", "heart", "kidney", "liver", "lung", "muscle", "placenta", "stomach")
-trait_name_list <- c("BMI","CAD","HDL","Height","IBD","Intelligence","LDL","RA","Schizophrenia")
+trait_name_list <- c("Asthma", "BMI","CAD","HDL","Height","IBD","Intelligence","LDL","RA","Schizophrenia", "T2D")
 ```
 
 
@@ -211,7 +213,7 @@ There are two BMI GWAS datasets: `BMI_GWAS_fromScott.txt.gz` and `BMI_GWAS_raw`.
 
 ```{r torus annotations and traits}
 annot_list <- c("brain", "heart", "kidney", "liver", "lung", "muscle", "placenta", "stomach")
-trait_name_list <- c("BMI","CAD","HDL","HEIGHT","IBD","INTELLIGENCE","LDL","RA","SCZ","DBP","PP","SBP")
+trait_name_list <- c("ASTHMA","BMI","CAD","HDL","HEIGHT","IBD","INTELLIGENCE","LDL","RA","SCZ","DBP","PP","SBP")
 ```
 
 
@@ -253,20 +255,20 @@ ggplot_enrichment <- function(result_torus, xlim = NULL, title = "Enrichment"){
 
 ggplot_log2_enrichment <- function(result_torus, xlim = NULL, title = "Enrichment"){
   
-  result_torus$Enrichment_CI_L <- result_torus$Low
-  result_torus$Enrichment_CI_H <- result_torus$High
+  result_torus$Enrichment_CI_L <- log2(result_torus$Low)
+  result_torus$Enrichment_CI_H <- log2(result_torus$High)
 
   ## truncate at 1
-  result_torus$Enrichment[result_torus$Enrichment < 1] <- 1
-  result_torus$Enrichment_CI_L[result_torus$Enrichment_CI_L < 1] <- 1
-  result_torus$Enrichment_CI_H[result_torus$Enrichment_CI_H < 1] <- 1
+  # result_torus$Enrichment[result_torus$Enrichment < 1] <- 1
+  # result_torus$Enrichment_CI_L[result_torus$Enrichment_CI_L < 1] <- 1
+  # result_torus$Enrichment_CI_H[result_torus$Enrichment_CI_H < 1] <- 1
 
   p <- ggplot(result_torus, aes(x = log2(Enrichment), y = Category, colour = Color))+
     geom_point()+
     xlab("log2(Enrichment)")+
     ggtitle(title)+
-    geom_errorbarh(aes(xmin = log2(Enrichment_CI_L), 
-                       xmax = log2(Enrichment_CI_H), height = 0.1))+ 
+    geom_errorbarh(aes(xmin = Enrichment_CI_L, 
+                       xmax = Enrichment_CI_H, height = 0.1))+ 
     facet_wrap(Disease~.,ncol = 4)+
     theme_bw()  + 
     geom_vline(xintercept = 0,linetype="dotted", colour = "red")+
@@ -287,14 +289,38 @@ ggplot_log2_enrichment <- function(result_torus, xlim = NULL, title = "Enrichmen
 }
 
 
-## combine S-LDSC enrichment results across traits
+## combine torus enrichment results across traits
 combine_torus_traits <- function(trait_name_list, dir_results){
   registerDoParallel(cores = 10)
   
   result_torus <- foreach(trait = trait_name_list, .combine = rbind)%dopar%{
-    torus_results <- read.table(paste0(dir_results,"/", trait,".results"), header = T, stringsAsFactors = F)
-    torus_results$Disease = trait
-    torus_results
+    torus_results <- read.table(paste0(dir_results,"/", trait, "/", trait, "_", "brain.results"), header = T, stringsAsFactors = F)
+    torus.brain <- torus_results[torus_results$term != "Intercept",]
+    
+    torus_results <- read.table(paste0(dir_results,"/", trait, "/", trait, "_", "heart.results"), header = T, stringsAsFactors = F)
+    torus.heart <- torus_results[torus_results$term != "Intercept",]
+    
+    torus_results <- read.table(paste0(dir_results,"/", trait, "/", trait, "_", "kidney.results"), header = T, stringsAsFactors = F)
+    torus.kidney <- torus_results[torus_results$term != "Intercept",]
+    
+    torus_results <- read.table(paste0(dir_results,"/", trait, "/", trait, "_", "liver.results"), header = T, stringsAsFactors = F)
+    torus.liver <- torus_results[torus_results$term != "Intercept",]
+    
+    torus_results <- read.table(paste0(dir_results,"/", trait, "/", trait, "_", "lung.results"), header = T, stringsAsFactors = F)
+    torus.lung <- torus_results[torus_results$term != "Intercept",]
+    
+    torus_results <- read.table(paste0(dir_results,"/", trait, "/", trait, "_", "muscle.results"), header = T, stringsAsFactors = F)
+    torus.muscle <- torus_results[torus_results$term != "Intercept",]
+    
+    torus_results <- read.table(paste0(dir_results,"/", trait, "/", trait, "_", "placenta.results"), header = T, stringsAsFactors = F)
+    torus.placenta <- torus_results[torus_results$term != "Intercept",]
+    
+    torus_results <- read.table(paste0(dir_results,"/", trait, "/", trait, "_", "stomach.results"), header = T, stringsAsFactors = F)
+    torus.stomach <- torus_results[torus_results$term != "Intercept",]
+    
+    torus.combined <- rbind(torus.brain, torus.heart, torus.kidney, torus.liver, torus.lung, torus.muscle, torus.placenta, torus.stomach)
+    torus.combined <- cbind(Disease = trait, torus.combined)
+    torus.combined
   }
   return(result_torus)
 }
@@ -311,11 +337,17 @@ change_annot_names <- function(annot_list){
   annot_list <- gsub("^stomach_hg19_mod.bed.1$","stomach", annot_list)
   return(annot_list)
 }
+
+#convert from ln units
+convert_values <- function(column){
+  return(exp(column))
+}
+
 ```
 
 
 ```{r torus data import}
-dir_results <- "/project2/xinhe/cdu/torus/results"
+dir_results <- "/project2/xinhe/cdu/torus/results/Xiao"
 result_torus <- combine_torus_traits(trait_name_list, dir_results)
 
 result_torus$term <- change_annot_names(result_torus$term)
@@ -323,8 +355,8 @@ names(result_torus)[names(result_torus) == "term"] <- "Category"
 names(result_torus)[names(result_torus) == "estimate"] <- "Enrichment"
 names(result_torus)[names(result_torus) == "low"] <- "Low"
 names(result_torus)[names(result_torus) == "high"] <- "High"
-result_torus <- result_torus[!(result_torus$Category=="Intercept"),]
-result_torus <- result_torus[,c(5,1,2,3,4)]
+
+result_torus <- cbind(result_torus[1:2], apply(result_torus[3:5],2, convert_values) )
 
 result_torus$Category <- factor(result_torus$Category, levels = rev(annot_list) )
 result_torus$Color <- factor(result_torus$Category, levels = annot_list)
@@ -339,9 +371,10 @@ DT::datatable(format(result_torus[,1:5], digits = 2),
               rownames = F)
 ```
 
-```{r torus plots}
-ggplot_enrichment(result_torus, title = "")
-ggplot_log2_enrichment(result_torus, title = "")
+
+```{r torus plots, fig.height = 12}
+ggplot_enrichment(result_torus, title = "", xlim = c(0,50))
+ggplot_log2_enrichment(result_torus, title = "", xlim=c(0,6))
 ```
 
 
