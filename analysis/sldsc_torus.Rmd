@@ -402,7 +402,7 @@ DT::datatable(format(result_torus[,1:5], digits = 2),
 ```
 
 
-```{r torus plots, fig.height = 12}
+```{r torus plots, fig.height = 9}
 ggplot_enrichment(result_torus, title = "", xlim = c(0,50))
 ggplot_log2_enrichment(result_torus, title = "", xlim=c(0,6))
 ```
