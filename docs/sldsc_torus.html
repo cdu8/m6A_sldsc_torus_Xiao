@@ -448,16 +448,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomcdu8m6AsldsctorusXiaotree856950212ff57a36668769d21914aed5ec71899btargetblank8569502a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/cdu8/m6A_sldsc_torus_Xiao/tree/856950212ff57a36668769d21914aed5ec71899b" target="_blank">8569502</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomcdu8m6AsldsctorusXiaotreeab1fdd930e162464b96b83e0ff4cced7e437e71btargetblankab1fdd9a"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/cdu8/m6A_sldsc_torus_Xiao/tree/ab1fdd930e162464b96b83e0ff4cced7e437e71b" target="_blank">ab1fdd9</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomcdu8m6AsldsctorusXiaotree856950212ff57a36668769d21914aed5ec71899btargetblank8569502a" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomcdu8m6AsldsctorusXiaotreeab1fdd930e162464b96b83e0ff4cced7e437e71btargetblankab1fdd9a" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/cdu8/m6A_sldsc_torus_Xiao/tree/856950212ff57a36668769d21914aed5ec71899b" target="_blank">8569502</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/cdu8/m6A_sldsc_torus_Xiao/tree/ab1fdd930e162464b96b83e0ff4cced7e437e71b" target="_blank">ab1fdd9</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -503,6 +503,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/cdu8/m6A_sldsc_torus_Xiao/blob/ab1fdd930e162464b96b83e0ff4cced7e437e71b/analysis/sldsc_torus.Rmd" target="_blank">ab1fdd9</a>
+</td>
+<td>
+cdu8
+</td>
+<td>
+2020-08-03
+</td>
+<td>
+wflow_publish(c(“analysis/sldsc_torus.Rmd”))
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/cdu8/m6A_sldsc_torus_Xiao/ef088f144090c3c3bcd781d52a026d8bc226388f/docs/sldsc_torus.html" target="_blank">ef088f1</a>
+</td>
+<td>
+cdu8
+</td>
+<td>
+2020-08-03
+</td>
+<td>
+Build site.
+</td>
+</tr>
 <tr>
 <td>
 Rmd
@@ -563,12 +597,16 @@ sldsc and torus analysis
 </div>
 <div id="introduction" class="section level2">
 <h2><strong>Introduction</strong></h2>
-<p>I ran S-LDSC and Torus on m6A annotations of 8 tissues: brain, heart, kidney, liver, lung, muscle, placenta, and stomach. For S-LDSC, I used two baseline models:</p>
-<p>A subset of the baseline LD annotations located here: RCC:/project2/xinhe/kevinluo/ldsc/annot/ldscores/baseline_gene_MAF_LD/ and (2). I did this for 9 GWAS: BMI, CAD, HDL, Height, Intelligence, IBD, LDL, RA, and Schizophrenia. I also ran Torus for blood pressure GWAS: diastolic blood pressure (DBP), pulse pressure (DBP), and systolic blood pressure (SBP).</p>
+<p>I ran S-LDSC and Torus on m6A annotations of 8 tissues: brain, heart, kidney, liver, lung, muscle, placenta, and stomach. I did this for 11 GWAS: Asthma, BMI, CAD, HDL, Height, Intelligence, IBD, LDL, RA, Schizophrenia, and Type II Diabetes. I also ran Torus for blood pressure GWAS: diastolic blood pressure (DBP), pulse pressure (DBP), and systolic blood pressure (SBP).</p>
 <p>m6A annotations used are from this paper: Xiao et al. The RNA N6-methyladenosine modification landscape of human fetal tissues. Nature 2019.</p>
 </div>
 <div id="s-ldsc" class="section level2">
 <h2><strong>S-LDSC</strong></h2>
+<p>For S-LDSC, I used two baseline models:</p>
+<ol style="list-style-type: decimal">
+<li>A subset of the baseline LD annotations located here: <code>RCC:/project2/xinhe/kevinluo/ldsc/annot/ldscores/baseline_gene_MAF_LD/</code></li>
+<li>Baseline LD v1.1 located here: <code>RCC:/project2/xinhe/kevinluo/ldsc/LDSCORE/1000G_Phase3_baselineLD_v1.1_ldscores</code></li>
+</ol>
 <div id="gwas-and-m6a-annotations" class="section level3">
 <h3>GWAS and m6A annotations:</h3>
 <ul>
@@ -576,9 +614,9 @@ sldsc and torus analysis
 <li>Intelligence GWAS in the sumstats format is located at <code>RCC:/project2/xinhe/kevinluo/GWAS/GWAS_summary_stats/GWAS_from_Min/ldsc_format</code></li>
 <li>The original m6A annotations in BED format are located at <code>RCC:/project2/xinhe/cdu/ldsc/results/sLDSC_Xiao_m6A_2019/Annot/hg38/Bed</code></li>
 </ul>
-<p>Because the GWAS summary statistics were based on the hg19 map, the m6A annotations were converted from hg38 to hg19 using liftOver.</p>
+<p>Because the GWAS summary statistics were based on the hg19 map, the m6A annotations were converted from hg38 to hg19 using <code>liftOver</code>.</p>
 <pre class="r"><code>annot_list &lt;- c(&quot;brain&quot;, &quot;heart&quot;, &quot;kidney&quot;, &quot;liver&quot;, &quot;lung&quot;, &quot;muscle&quot;, &quot;placenta&quot;, &quot;stomach&quot;)
-trait_name_list &lt;- c(&quot;Asthma&quot;, &quot;BMI&quot;,&quot;CAD&quot;,&quot;HDL&quot;,&quot;Height&quot;,&quot;IBD&quot;,&quot;Intelligence&quot;,&quot;LDL&quot;,&quot;RA&quot;,&quot;Schizophrenia&quot;, &quot;T2D&quot;)</code></pre>
+trait_name_list &lt;- c(&quot;Asthma&quot;, &quot;BMI&quot;,&quot;CAD&quot;,&quot;HDL&quot;,&quot;Height&quot;,&quot;IBD&quot;,&quot;Intelligence&quot;,&quot;LDL&quot;,&quot;RA&quot;,&quot;Schizophrenia&quot;,&quot;T2D&quot;)</code></pre>
 <pre class="r"><code>library(ggplot2)
 library(foreach)
 library(doParallel)</code></pre>
@@ -725,6 +763,9 @@ combine_sldsc_traits &lt;- function(trait_name_list, dir_results, baseline){
   }
   return(result_sLDSC)
 }</code></pre>
+</div>
+<div id="modified-baseline-model" class="section level3">
+<h3>Modified baseline model</h3>
 <pre class="r"><code>baseline &lt;- &quot;baseline_gene_MAF_LD&quot;
 
 dir_results &lt;- &quot;/project2/xinhe/cdu/ldsc/results/sLDSC_Xiao_m6A_2019/results_sLDSC_hg19&quot;
@@ -759,6 +800,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/cdu8/m6A_sldsc_torus_Xiao/blob/ef088f144090c3c3bcd781d52a026d8bc226388f/docs/figure/sldsc_torus.Rmd/plots-1.png" target="_blank">ef088f1</a>
+</td>
+<td>
+cdu8
+</td>
+<td>
+2020-08-03
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/cdu8/m6A_sldsc_torus_Xiao/blob/f713d1b215015870aa312a6e6d5e415a1b6a741d/docs/figure/sldsc_torus.Rmd/plots-1.png" target="_blank">f713d1b</a>
@@ -800,6 +852,17 @@ Date
 <tbody>
 <tr>
 <td>
+<a href="https://github.com/cdu8/m6A_sldsc_torus_Xiao/blob/ef088f144090c3c3bcd781d52a026d8bc226388f/docs/figure/sldsc_torus.Rmd/plots-2.png" target="_blank">ef088f1</a>
+</td>
+<td>
+cdu8
+</td>
+<td>
+2020-08-03
+</td>
+</tr>
+<tr>
+<td>
 <a href="https://github.com/cdu8/m6A_sldsc_torus_Xiao/blob/f713d1b215015870aa312a6e6d5e415a1b6a741d/docs/figure/sldsc_torus.Rmd/plots-2.png" target="_blank">f713d1b</a>
 </td>
 <td>
@@ -814,19 +877,37 @@ cdu8
 </div>
 </div>
 </div>
+<div id="baseline-v1.1" class="section level3">
+<h3>Baseline V1.1</h3>
+<pre class="r"><code>baseline &lt;- &quot;baselineLDv1.1&quot;
+
+dir_results &lt;- &quot;/project2/xinhe/cdu/ldsc/results/sLDSC_Xiao_m6A_2019/results_sLDSC_hg19&quot;
+result_sLDSC &lt;- combine_sldsc_traits(trait_name_list, dir_results, baseline)
+
+result_sLDSC$Category &lt;- factor(result_sLDSC$Category, levels = rev(annot_list) )
+result_sLDSC$Color &lt;- factor(result_sLDSC$Category, levels = annot_list)</code></pre>
+<pre class="r"><code>DT::datatable(format(result_sLDSC[,1:8], digits = 2), options = list(scrollX = TRUE, keys = TRUE, pageLength = length(annot_list)),rownames = F)</code></pre>
+<div id="htmlwidget-81c9218171da0ac5b027" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-81c9218171da0ac5b027">{"x":{"filter":"none","data":[["Asthma","Asthma","Asthma","Asthma","Asthma","Asthma","Asthma","Asthma","BMI","BMI","BMI","BMI","BMI","BMI","BMI","BMI","CAD","CAD","CAD","CAD","CAD","CAD","CAD","CAD","HDL","HDL","HDL","HDL","HDL","HDL","HDL","HDL","Height","Height","Height","Height","Height","Height","Height","Height","IBD","IBD","IBD","IBD","IBD","IBD","IBD","IBD","Intelligence","Intelligence","Intelligence","Intelligence","Intelligence","Intelligence","Intelligence","Intelligence","LDL","LDL","LDL","LDL","LDL","LDL","LDL","LDL","RA","RA","RA","RA","RA","RA","RA","RA","Schizophrenia","Schizophrenia","Schizophrenia","Schizophrenia","Schizophrenia","Schizophrenia","Schizophrenia","Schizophrenia","T2D","T2D","T2D","T2D","T2D","T2D","T2D","T2D"],["brain","heart","kidney","liver","lung","muscle","placenta","stomach","brain","heart","kidney","liver","lung","muscle","placenta","stomach","brain","heart","kidney","liver","lung","muscle","placenta","stomach","brain","heart","kidney","liver","lung","muscle","placenta","stomach","brain","heart","kidney","liver","lung","muscle","placenta","stomach","brain","heart","kidney","liver","lung","muscle","placenta","stomach","brain","heart","kidney","liver","lung","muscle","placenta","stomach","brain","heart","kidney","liver","lung","muscle","placenta","stomach","brain","heart","kidney","liver","lung","muscle","placenta","stomach","brain","heart","kidney","liver","lung","muscle","placenta","stomach","brain","heart","kidney","liver","lung","muscle","placenta","stomach"],["0.0062","0.0031","0.0069","0.0028","0.0029","0.0042","0.0050","0.0029","0.0062","0.0031","0.0069","0.0028","0.0029","0.0042","0.0050","0.0029","0.0062","0.0031","0.0069","0.0028","0.0029","0.0042","0.0050","0.0029","0.0062","0.0031","0.0069","0.0028","0.0029","0.0042","0.0050","0.0029","0.0062","0.0031","0.0069","0.0028","0.0029","0.0042","0.0050","0.0029","0.0062","0.0031","0.0069","0.0028","0.0029","0.0042","0.0050","0.0029","0.0062","0.0031","0.0069","0.0028","0.0029","0.0042","0.0050","0.0029","0.0062","0.0031","0.0069","0.0028","0.0029","0.0042","0.0050","0.0029","0.0062","0.0031","0.0069","0.0028","0.0029","0.0042","0.0050","0.0029","0.0062","0.0031","0.0069","0.0028","0.0029","0.0042","0.0050","0.0029","0.0062","0.0031","0.0069","0.0028","0.0029","0.0042","0.0050","0.0029"],["-3.0e-02","-1.4e-02"," 9.4e-04"," 2.1e-02","-2.1e-02","-7.3e-04","-6.0e-03","-9.4e-03"," 1.8e-02"," 1.8e-02"," 1.3e-02"," 2.8e-02"," 9.2e-03"," 1.9e-02"," 2.4e-02"," 2.2e-02","-7.7e-03"," 3.1e-02"," 1.4e-02"," 2.8e-02"," 3.3e-02"," 1.1e-02"," 4.7e-02"," 2.2e-02","-1.7e-03","-5.4e-03"," 1.6e-02"," 4.3e-02"," 1.0e-03","-6.3e-05"," 7.9e-03","-7.9e-04"," 5.7e-03"," 3.6e-02"," 3.9e-02"," 1.6e-02"," 6.4e-02"," 4.2e-02"," 8.0e-02"," 4.7e-02","-3.5e-02","-1.4e-02","-1.8e-02"," 4.0e-03"," 5.8e-04","-7.4e-03","-6.8e-03"," 2.2e-02"," 3.2e-02"," 1.3e-02","-6.8e-03"," 7.6e-03"," 1.5e-03","-3.8e-03","-8.8e-04"," 8.4e-03","-3.0e-04"," 1.7e-02"," 4.7e-02"," 9.4e-02"," 3.5e-02"," 3.0e-02"," 3.4e-02"," 6.2e-02","-6.5e-03","-1.1e-02","-1.6e-02","-9.0e-03","-6.4e-03","-2.2e-02","-1.6e-02","-5.5e-03"," 5.4e-02"," 1.6e-02"," 1.4e-02"," 1.7e-02"," 2.4e-03"," 5.3e-03"," 2.0e-02"," 1.0e-02"," 2.7e-02"," 3.6e-02"," 2.6e-02"," 2.0e-02"," 1.1e-02"," 2.5e-02"," 1.9e-02"," 2.6e-02"],["0.0375","0.0285","0.0408","0.0227","0.0277","0.0329","0.0289","0.0246","0.0104","0.0093","0.0111","0.0073","0.0086","0.0100","0.0098","0.0091","0.0173","0.0186","0.0222","0.0175","0.0210","0.0194","0.0233","0.0210","0.0134","0.0136","0.0162","0.0172","0.0131","0.0113","0.0154","0.0125","0.0132","0.0137","0.0150","0.0107","0.0237","0.0182","0.0202","0.0170","0.0211","0.0206","0.0243","0.0243","0.0197","0.0215","0.0216","0.0217","0.0078","0.0076","0.0083","0.0061","0.0063","0.0076","0.0069","0.0068","0.0171","0.0211","0.0289","0.0350","0.0220","0.0235","0.0226","0.0266","0.0258","0.0214","0.0279","0.0229","0.0198","0.0236","0.0268","0.0198","0.0123","0.0116","0.0100","0.0092","0.0076","0.0088","0.0108","0.0083","0.0271","0.0252","0.0264","0.0207","0.0231","0.0232","0.0290","0.0272"],["-4.829","-4.367"," 0.137"," 7.684","-7.160","-0.174","-1.220","-3.288"," 2.901"," 5.776"," 1.959","10.128"," 3.160"," 4.623"," 4.886"," 7.709","-1.243","10.057"," 2.076","10.068","11.257"," 2.685"," 9.384"," 7.537","-0.268","-1.737"," 2.366","15.562"," 0.347","-0.015"," 1.586","-0.275"," 0.918","11.614"," 5.715"," 5.791","22.065"," 9.935","16.117","16.396","-5.574","-4.565","-2.637"," 1.433"," 0.198","-1.757","-1.381"," 7.565"," 5.205"," 4.215","-0.990"," 2.747"," 0.529","-0.903","-0.178"," 2.951","-0.049"," 5.591"," 6.787","33.899","12.119"," 7.239"," 6.852","21.721","-1.045","-3.473","-2.380","-3.235","-2.180","-5.298","-3.250","-1.932"," 8.674"," 5.057"," 1.990"," 6.098"," 0.824"," 1.267"," 3.982"," 3.569"," 4.413","11.601"," 3.820"," 7.318"," 3.831"," 5.933"," 3.781"," 8.997"],[" 6.0"," 9.2"," 5.9"," 8.2"," 9.5"," 7.8"," 5.8"," 8.6"," 1.7"," 3.0"," 1.6"," 2.7"," 3.0"," 2.4"," 2.0"," 3.2"," 2.8"," 6.0"," 3.2"," 6.3"," 7.2"," 4.6"," 4.7"," 7.3"," 2.2"," 4.4"," 2.4"," 6.2"," 4.5"," 2.7"," 3.1"," 4.4"," 2.1"," 4.4"," 2.2"," 3.9"," 8.1"," 4.3"," 4.1"," 5.9"," 3.4"," 6.6"," 3.5"," 8.8"," 6.7"," 5.1"," 4.4"," 7.6"," 1.2"," 2.4"," 1.2"," 2.2"," 2.2"," 1.8"," 1.4"," 2.4"," 2.8"," 6.8"," 4.2","12.7"," 7.5"," 5.6"," 4.6"," 9.3"," 4.2"," 6.9"," 4.1"," 8.3"," 6.8"," 5.6"," 5.4"," 6.9"," 2.0"," 3.7"," 1.5"," 3.3"," 2.6"," 2.1"," 2.2"," 2.9"," 4.4"," 8.1"," 3.9"," 7.5"," 7.9"," 5.5"," 5.8"," 9.5"],["0.32680","0.55631","0.88349","0.40983","0.38953","0.87984","0.70153","0.61775","0.25289","0.10844","0.55186","0.00051","0.46414","0.12901","0.04920","0.03675","0.41969","0.12896","0.73851","0.14794","0.15197","0.71332","0.07133","0.37159","0.55297","0.53695","0.55644","0.01926","0.88281","0.70635","0.84727","0.76940","0.96909","0.01832","0.03461","0.21202","0.01196","0.04435","0.00043","0.01276","0.05368","0.39936","0.30525","0.96071","0.90545","0.58945","0.58409","0.38677","0.00083","0.19081","0.09928","0.42930","0.82701","0.29496","0.39341","0.41180","0.69846","0.49611","0.17404","0.01436","0.14603","0.26417","0.20011","0.03704","0.62297","0.51829","0.40458","0.60903","0.64103","0.26781","0.43114","0.67230","0.00010","0.27779","0.49603","0.12372","0.94578","0.89811","0.17297","0.37743","0.43018","0.18745","0.45976","0.39378","0.72078","0.36879","0.63284","0.39989"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Disease<\/th>\n      <th>Category<\/th>\n      <th>Prop._SNPs<\/th>\n      <th>Prop._h2<\/th>\n      <th>Prop._h2_std_error<\/th>\n      <th>Enrichment<\/th>\n      <th>Enrichment_std_error<\/th>\n      <th>Enrichment_p<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"scrollX":true,"keys":true,"pageLength":8,"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[8,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+<pre class="r"><code>ggplot_enrichment(result_sLDSC, title = &quot;&quot;)</code></pre>
+<p><img src="figure/sldsc_torus.Rmd/v1.1%20plots-1.png" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>ggplot_log2_enrichment(result_sLDSC, title = &quot;&quot;)</code></pre>
+<p><img src="figure/sldsc_torus.Rmd/v1.1%20plots-2.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
 </div>
 <div id="torus" class="section level2">
 <h2><strong>Torus</strong></h2>
 <div id="gwas-and-m6a-annotations-1" class="section level3">
 <h3>GWAS and m6A annotations:</h3>
 <ul>
-<li>BMI, HDL, Height, LDL, RA, and Schizophrenia GWAS are located at <code>RCC:/project2/xinhe/kevinluo/GWAS/GWAS_summary_stats/GWAS_collection/GWAS_raw</code></li>
+<li>Asthma, BMI, HDL, Height, LDL, RA, and Schizophrenia GWAS are located at <code>RCC:/project2/xinhe/kevinluo/GWAS/GWAS_summary_stats/GWAS_collection/GWAS_raw</code></li>
 <li>The Intelligence GWAS is located at <code>RCC:/project2/xinhe/kevinluo/GWAS/GWAS_summary_stats/GWAS_from_Min/raw_data</code></li>
 <li>CAD, blood pressure, and IBD GWAS are located at <code>RCC:/project2/compbio/gwas_summary_statistics</code></li>
 <li>The liftOver hg19 m6A annotations are located at <code>RCC:/project2/xinhe/cdu/torus/annot/Xiao/hg19</code></li>
 <li>GWAS data suitable for Torus can be found here <code>RCC:/project2/xinhe/cdu/GWAS/Xiao_torus_format</code></li>
 </ul>
 <p>There are two BMI GWAS datasets: <code>BMI_GWAS_fromScott.txt.gz</code> and <code>BMI_GWAS_raw</code>. The <code>BMI_GWAS_raw</code> dataset was missing the chromosome and position data, so the missing SNP positions were taken from <code>BMI_GWAS_fromScott.txt.gz</code>. Of the 2554637 SNPs reported in <code>BMI_GWAS_raw</code>, 2092511 matched those in <code>BMI_GWAS_fromScott.txt.gz</code>.</p>
+<p>Running Torus on T2D GWAS failed because too few T2D variants were matched - only 10,428 out of 2,470,851 variants were matched.</p>
 <pre class="r"><code>annot_list &lt;- c(&quot;brain&quot;, &quot;heart&quot;, &quot;kidney&quot;, &quot;liver&quot;, &quot;lung&quot;, &quot;muscle&quot;, &quot;placenta&quot;, &quot;stomach&quot;)
 trait_name_list &lt;- c(&quot;ASTHMA&quot;,&quot;BMI&quot;,&quot;CAD&quot;,&quot;HDL&quot;,&quot;HEIGHT&quot;,&quot;IBD&quot;,&quot;INTELLIGENCE&quot;,&quot;LDL&quot;,&quot;RA&quot;,&quot;SCZ&quot;,&quot;DBP&quot;,&quot;PP&quot;,&quot;SBP&quot;)</code></pre>
 <pre class="r"><code>library(ggplot2)
@@ -971,8 +1052,8 @@ result_torus$Color &lt;- factor(result_torus$Category, levels = annot_list)</cod
               style = &#39;bootstrap&#39;,
               options = list(scrollX = TRUE, keys = TRUE, pageLength = length(annot_list)),
               rownames = F)</code></pre>
-<div id="htmlwidget-81c9218171da0ac5b027" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-81c9218171da0ac5b027">{"x":{"style":"bootstrap","filter":"none","data":[["ASTHMA","ASTHMA","ASTHMA","ASTHMA","ASTHMA","ASTHMA","ASTHMA","ASTHMA","BMI","BMI","BMI","BMI","BMI","BMI","BMI","BMI","CAD","CAD","CAD","CAD","CAD","CAD","CAD","CAD","HDL","HDL","HDL","HDL","HDL","HDL","HDL","HDL","HEIGHT","HEIGHT","HEIGHT","HEIGHT","HEIGHT","HEIGHT","HEIGHT","HEIGHT","IBD","IBD","IBD","IBD","IBD","IBD","IBD","IBD","INTELLIGENCE","INTELLIGENCE","INTELLIGENCE","INTELLIGENCE","INTELLIGENCE","INTELLIGENCE","INTELLIGENCE","INTELLIGENCE","LDL","LDL","LDL","LDL","LDL","LDL","LDL","LDL","RA","RA","RA","RA","RA","RA","RA","RA","SCZ","SCZ","SCZ","SCZ","SCZ","SCZ","SCZ","SCZ","DBP","DBP","DBP","DBP","DBP","DBP","DBP","DBP","PP","PP","PP","PP","PP","PP","PP","PP","SBP","SBP","SBP","SBP","SBP","SBP","SBP","SBP"],["brain","heart","kidney","liver","lung","muscle","placenta","stomach","brain","heart","kidney","liver","lung","muscle","placenta","stomach","brain","heart","kidney","liver","lung","muscle","placenta","stomach","brain","heart","kidney","liver","lung","muscle","placenta","stomach","brain","heart","kidney","liver","lung","muscle","placenta","stomach","brain","heart","kidney","liver","lung","muscle","placenta","stomach","brain","heart","kidney","liver","lung","muscle","placenta","stomach","brain","heart","kidney","liver","lung","muscle","placenta","stomach","brain","heart","kidney","liver","lung","muscle","placenta","stomach","brain","heart","kidney","liver","lung","muscle","placenta","stomach","brain","heart","kidney","liver","lung","muscle","placenta","stomach","brain","heart","kidney","liver","lung","muscle","placenta","stomach","brain","heart","kidney","liver","lung","muscle","placenta","stomach"],[" 2.4"," 3.4"," 8.3","15.4"," 4.1"," 3.9"," 5.8","13.8","12.2","14.8"," 6.5","15.4"," 8.4"," 9.9"," 8.9","13.0"," 7.8","26.3","14.3","22.1","22.7","18.3","16.9","18.9","10.8","21.6","11.1","24.2","17.9","10.7","15.1","19.0"," 8.3","12.0"," 9.2","12.1","14.0","10.5","10.6","13.1"," 1.5"," 2.6"," 1.9"," 1.6"," 2.0"," 3.1"," 1.7"," 2.1"," 7.7"," 6.1"," 3.5"," 7.5"," 3.8"," 8.4"," 4.8"," 9.1","12.1","21.0","17.2","18.6","21.3","15.2","12.7","21.8"," 6.0"," 1.5"," 2.0"," 1.0"," 1.8"," 3.6"," 3.1"," 2.1"," 8.3"," 2.5"," 6.4"," 9.9"," 5.9"," 4.9"," 5.9"," 4.5"," 7.8","17.3","13.5","15.4","17.1","16.7","15.0","16.9"," 8.6","19.2","10.5","14.3","16.5","13.9","13.2","16.3"," 6.3","14.2","10.1","11.5","12.3","11.7","11.4","12.7"],["9.2e-02","9.0e-02","1.1e+00","1.2e+00","1.2e-01","2.1e-01","4.6e-01","1.0e+00","4.2e+00","3.9e+00","1.9e+00","4.2e+00","1.8e+00","2.6e+00","2.4e+00","3.2e+00","2.7e+00","1.1e+01","6.7e+00","8.2e+00","9.5e+00","7.6e+00","7.2e+00","7.2e+00","4.1e+00","7.8e+00","4.2e+00","8.9e+00","5.6e+00","3.3e+00","5.6e+00","6.4e+00","4.5e+00","5.7e+00","5.2e+00","5.8e+00","6.8e+00","5.4e+00","5.7e+00","6.0e+00","4.3e-01","6.8e-01","6.5e-01","3.6e-01","4.8e-01","1.0e+00","5.1e-01","4.9e-01","3.0e+00","1.4e+00","1.2e+00","1.9e+00","7.3e-01","3.0e+00","1.5e+00","2.3e+00","4.2e+00","6.1e+00","7.0e+00","5.0e+00","6.0e+00","4.6e+00","3.7e+00","6.3e+00","9.6e-01","1.3e-02","1.5e-01","5.4e-01","5.5e-05","2.7e-01","2.6e-01","1.8e-02","2.5e+00","4.2e-01","2.1e+00","1.9e+00","1.1e+00","1.1e+00","1.4e+00","7.0e-01","3.8e+00","8.7e+00","7.9e+00","6.9e+00","8.6e+00","9.1e+00","8.1e+00","8.2e+00","4.4e+00","9.9e+00","5.9e+00","6.4e+00","7.8e+00","7.1e+00","6.7e+00","7.6e+00","3.1e+00","6.8e+00","5.7e+00","5.0e+00","5.7e+00","6.0e+00","5.9e+00","5.7e+00"],["   62.6","  127.1","   60.2","  196.0","  138.7","   72.0","   73.6","  190.6","   35.5","   55.7","   22.6","   56.9","   40.4","   37.2","   32.4","   53.7","   22.5","   60.9","   30.5","   59.2","   54.2","   44.3","   39.7","   49.5","   28.0","   59.9","   29.5","   65.8","   57.3","   34.5","   40.6","   56.5","   15.4","   25.2","   16.3","   25.4","   28.6","   20.5","   19.5","   29.0","    5.3","    9.7","    5.6","    6.7","    8.4","    9.3","    5.8","    8.7","   20.0","   26.2","   10.1","   28.8","   19.7","   23.9","   15.7","   36.7","   34.8","   71.9","   42.3","   69.1","   75.6","   50.1","   43.1","   75.3","   38.3","  183.3","   27.2","    1.9","55770.5","   48.7","   35.8","  242.0","   27.2","   15.1","   19.6","   51.7","   32.5","   22.3","   24.7","   28.3","   15.7","   34.5","   23.0","   34.4","   34.1","   30.6","   27.9","   34.9","   16.7","   37.2","   18.8","   32.0","   34.9","   27.5","   26.1","   35.2","   12.9","   29.6","   17.9","   26.2","   26.3","   23.1","   22.0","   28.2"]],"container":"<table class=\"table table-bordered table-striped\">\n  <thead>\n    <tr>\n      <th>Disease<\/th>\n      <th>Category<\/th>\n      <th>Enrichment<\/th>\n      <th>Low<\/th>\n      <th>High<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"scrollX":true,"keys":true,"pageLength":8,"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[8,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-3b2f59b8f6b996fec697" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-3b2f59b8f6b996fec697">{"x":{"style":"bootstrap","filter":"none","data":[["ASTHMA","ASTHMA","ASTHMA","ASTHMA","ASTHMA","ASTHMA","ASTHMA","ASTHMA","BMI","BMI","BMI","BMI","BMI","BMI","BMI","BMI","CAD","CAD","CAD","CAD","CAD","CAD","CAD","CAD","HDL","HDL","HDL","HDL","HDL","HDL","HDL","HDL","HEIGHT","HEIGHT","HEIGHT","HEIGHT","HEIGHT","HEIGHT","HEIGHT","HEIGHT","IBD","IBD","IBD","IBD","IBD","IBD","IBD","IBD","INTELLIGENCE","INTELLIGENCE","INTELLIGENCE","INTELLIGENCE","INTELLIGENCE","INTELLIGENCE","INTELLIGENCE","INTELLIGENCE","LDL","LDL","LDL","LDL","LDL","LDL","LDL","LDL","RA","RA","RA","RA","RA","RA","RA","RA","SCZ","SCZ","SCZ","SCZ","SCZ","SCZ","SCZ","SCZ","DBP","DBP","DBP","DBP","DBP","DBP","DBP","DBP","PP","PP","PP","PP","PP","PP","PP","PP","SBP","SBP","SBP","SBP","SBP","SBP","SBP","SBP"],["brain","heart","kidney","liver","lung","muscle","placenta","stomach","brain","heart","kidney","liver","lung","muscle","placenta","stomach","brain","heart","kidney","liver","lung","muscle","placenta","stomach","brain","heart","kidney","liver","lung","muscle","placenta","stomach","brain","heart","kidney","liver","lung","muscle","placenta","stomach","brain","heart","kidney","liver","lung","muscle","placenta","stomach","brain","heart","kidney","liver","lung","muscle","placenta","stomach","brain","heart","kidney","liver","lung","muscle","placenta","stomach","brain","heart","kidney","liver","lung","muscle","placenta","stomach","brain","heart","kidney","liver","lung","muscle","placenta","stomach","brain","heart","kidney","liver","lung","muscle","placenta","stomach","brain","heart","kidney","liver","lung","muscle","placenta","stomach","brain","heart","kidney","liver","lung","muscle","placenta","stomach"],[" 2.4"," 3.4"," 8.3","15.4"," 4.1"," 3.9"," 5.8","13.8","12.2","14.8"," 6.5","15.4"," 8.4"," 9.9"," 8.9","13.0"," 7.8","26.3","14.3","22.1","22.7","18.3","16.9","18.9","10.8","21.6","11.1","24.2","17.9","10.7","15.1","19.0"," 8.3","12.0"," 9.2","12.1","14.0","10.5","10.6","13.1"," 1.5"," 2.6"," 1.9"," 1.6"," 2.0"," 3.1"," 1.7"," 2.1"," 7.7"," 6.1"," 3.5"," 7.5"," 3.8"," 8.4"," 4.8"," 9.1","12.1","21.0","17.2","18.6","21.3","15.2","12.7","21.8"," 6.0"," 1.5"," 2.0"," 1.0"," 1.8"," 3.6"," 3.1"," 2.1"," 8.3"," 2.5"," 6.4"," 9.9"," 5.9"," 4.9"," 5.9"," 4.5"," 7.8","17.3","13.5","15.4","17.1","16.7","15.0","16.9"," 8.6","19.2","10.5","14.3","16.5","13.9","13.2","16.3"," 6.3","14.2","10.1","11.5","12.3","11.7","11.4","12.7"],["9.2e-02","9.0e-02","1.1e+00","1.2e+00","1.2e-01","2.1e-01","4.6e-01","1.0e+00","4.2e+00","3.9e+00","1.9e+00","4.2e+00","1.8e+00","2.6e+00","2.4e+00","3.2e+00","2.7e+00","1.1e+01","6.7e+00","8.2e+00","9.5e+00","7.6e+00","7.2e+00","7.2e+00","4.1e+00","7.8e+00","4.2e+00","8.9e+00","5.6e+00","3.3e+00","5.6e+00","6.4e+00","4.5e+00","5.7e+00","5.2e+00","5.8e+00","6.8e+00","5.4e+00","5.7e+00","6.0e+00","4.3e-01","6.8e-01","6.5e-01","3.6e-01","4.8e-01","1.0e+00","5.1e-01","4.9e-01","3.0e+00","1.4e+00","1.2e+00","1.9e+00","7.3e-01","3.0e+00","1.5e+00","2.3e+00","4.2e+00","6.1e+00","7.0e+00","5.0e+00","6.0e+00","4.6e+00","3.7e+00","6.3e+00","9.6e-01","1.3e-02","1.5e-01","5.4e-01","5.5e-05","2.7e-01","2.6e-01","1.8e-02","2.5e+00","4.2e-01","2.1e+00","1.9e+00","1.1e+00","1.1e+00","1.4e+00","7.0e-01","3.8e+00","8.7e+00","7.9e+00","6.9e+00","8.6e+00","9.1e+00","8.1e+00","8.2e+00","4.4e+00","9.9e+00","5.9e+00","6.4e+00","7.8e+00","7.1e+00","6.7e+00","7.6e+00","3.1e+00","6.8e+00","5.7e+00","5.0e+00","5.7e+00","6.0e+00","5.9e+00","5.7e+00"],["   62.6","  127.1","   60.2","  196.0","  138.7","   72.0","   73.6","  190.6","   35.5","   55.7","   22.6","   56.9","   40.4","   37.2","   32.4","   53.7","   22.5","   60.9","   30.5","   59.2","   54.2","   44.3","   39.7","   49.5","   28.0","   59.9","   29.5","   65.8","   57.3","   34.5","   40.6","   56.5","   15.4","   25.2","   16.3","   25.4","   28.6","   20.5","   19.5","   29.0","    5.3","    9.7","    5.6","    6.7","    8.4","    9.3","    5.8","    8.7","   20.0","   26.2","   10.1","   28.8","   19.7","   23.9","   15.7","   36.7","   34.8","   71.9","   42.3","   69.1","   75.6","   50.1","   43.1","   75.3","   38.3","  183.3","   27.2","    1.9","55770.5","   48.7","   35.8","  242.0","   27.2","   15.1","   19.6","   51.7","   32.5","   22.3","   24.7","   28.3","   15.7","   34.5","   23.0","   34.4","   34.1","   30.6","   27.9","   34.9","   16.7","   37.2","   18.8","   32.0","   34.9","   27.5","   26.1","   35.2","   12.9","   29.6","   17.9","   26.2","   26.3","   23.1","   22.0","   28.2"]],"container":"<table class=\"table table-bordered table-striped\">\n  <thead>\n    <tr>\n      <th>Disease<\/th>\n      <th>Category<\/th>\n      <th>Enrichment<\/th>\n      <th>Low<\/th>\n      <th>High<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"scrollX":true,"keys":true,"pageLength":8,"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[8,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
 <pre class="r"><code>ggplot_enrichment(result_torus, title = &quot;&quot;, xlim = c(0,50))</code></pre>
 <p><img src="figure/sldsc_torus.Rmd/torus%20plots-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>
@@ -997,6 +1078,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/cdu8/m6A_sldsc_torus_Xiao/blob/ef088f144090c3c3bcd781d52a026d8bc226388f/docs/figure/sldsc_torus.Rmd/torus plots-1.png" target="_blank">ef088f1</a>
+</td>
+<td>
+cdu8
+</td>
+<td>
+2020-08-03
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/cdu8/m6A_sldsc_torus_Xiao/blob/f713d1b215015870aa312a6e6d5e415a1b6a741d/docs/figure/sldsc_torus.Rmd/torus plots-1.png" target="_blank">f713d1b</a>
@@ -1036,6 +1128,17 @@ Date
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+<a href="https://github.com/cdu8/m6A_sldsc_torus_Xiao/blob/ef088f144090c3c3bcd781d52a026d8bc226388f/docs/figure/sldsc_torus.Rmd/torus plots-2.png" target="_blank">ef088f1</a>
+</td>
+<td>
+cdu8
+</td>
+<td>
+2020-08-03
+</td>
+</tr>
 <tr>
 <td>
 <a href="https://github.com/cdu8/m6A_sldsc_torus_Xiao/blob/f713d1b215015870aa312a6e6d5e415a1b6a741d/docs/figure/sldsc_torus.Rmd/torus plots-2.png" target="_blank">f713d1b</a>
