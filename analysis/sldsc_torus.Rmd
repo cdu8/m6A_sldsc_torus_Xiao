@@ -9,24 +9,28 @@ editor_options:
 
 ## **Introduction**
 
-I ran S-LDSC and Torus on m6A annotations of 8 tissues: brain, heart, kidney, liver, lung, muscle, placenta, and stomach. For S-LDSC, I used two baseline models: 
-
-A subset of the baseline LD annotations located here: RCC:/project2/xinhe/kevinluo/ldsc/annot/ldscores/baseline_gene_MAF_LD/ and (2). I did this for 9 GWAS: BMI, CAD, HDL, Height, Intelligence, IBD, LDL, RA, and Schizophrenia. I also ran Torus for blood pressure GWAS: diastolic blood pressure (DBP), pulse pressure (DBP), and systolic blood pressure (SBP). 
+I ran S-LDSC and Torus on m6A annotations of 8 tissues: brain, heart, kidney, liver, lung, muscle, placenta, and stomach. I did this for 11 GWAS: Asthma, BMI, CAD, HDL, Height, Intelligence, IBD, LDL, RA, Schizophrenia, and Type II Diabetes. I also ran Torus for blood pressure GWAS: diastolic blood pressure (DBP), pulse pressure (DBP), and systolic blood pressure (SBP). 
 
 m6A annotations used are from this paper: Xiao et al. The RNA N6-methyladenosine modification landscape of human fetal tissues. Nature 2019.
 
 ## **S-LDSC**
+
+For S-LDSC, I used two baseline models: 
+
+1. A subset of the baseline LD annotations located here: `RCC:/project2/xinhe/kevinluo/ldsc/annot/ldscores/baseline_gene_MAF_LD/`
+2. Baseline LD v1.1 located here:
+`RCC:/project2/xinhe/kevinluo/ldsc/LDSCORE/1000G_Phase3_baselineLD_v1.1_ldscores`
 
 ### GWAS and m6A annotations:
 * GWAS summary statistics in the sumstats format (excluding Intelligence) are located at `RCC:/project2/xinhe/kevinluo/GWAS/GWAS_summary_stats/GWAS_collection/ldsc_format` 
 * Intelligence GWAS in the sumstats format is located at `RCC:/project2/xinhe/kevinluo/GWAS/GWAS_summary_stats/GWAS_from_Min/ldsc_format` 
 * The original m6A annotations in BED format are located at `RCC:/project2/xinhe/cdu/ldsc/results/sLDSC_Xiao_m6A_2019/Annot/hg38/Bed` 
 
-Because the GWAS summary statistics were based on the hg19 map, the m6A annotations were converted from hg38 to hg19 using liftOver. 
+Because the GWAS summary statistics were based on the hg19 map, the m6A annotations were converted from hg38 to hg19 using `liftOver`. 
 
 ```{r annotations and traits}
 annot_list <- c("brain", "heart", "kidney", "liver", "lung", "muscle", "placenta", "stomach")
-trait_name_list <- c("Asthma", "BMI","CAD","HDL","Height","IBD","Intelligence","LDL","RA","Schizophrenia", "T2D")
+trait_name_list <- c("Asthma", "BMI","CAD","HDL","Height","IBD","Intelligence","LDL","RA","Schizophrenia","T2D")
 ```
 
 
@@ -178,6 +182,7 @@ combine_sldsc_traits <- function(trait_name_list, dir_results, baseline){
 }
 ```
 
+### Modified baseline model
 
 ```{r data import}
 baseline <- "baseline_gene_MAF_LD"
@@ -200,16 +205,41 @@ ggplot_enrichment(result_sLDSC, title = "")
 ggplot_log2_enrichment(result_sLDSC, title = "")
 ```
 
+### Baseline V1.1
+
+```{r v1.1 data import}
+baseline <- "baselineLDv1.1"
+
+dir_results <- "/project2/xinhe/cdu/ldsc/results/sLDSC_Xiao_m6A_2019/results_sLDSC_hg19"
+result_sLDSC <- combine_sldsc_traits(trait_name_list, dir_results, baseline)
+
+result_sLDSC$Category <- factor(result_sLDSC$Category, levels = rev(annot_list) )
+result_sLDSC$Color <- factor(result_sLDSC$Category, levels = annot_list)
+```
+
+
+```{r v1.1 data table}
+DT::datatable(format(result_sLDSC[,1:8], digits = 2), options = list(scrollX = TRUE, keys = TRUE, pageLength = length(annot_list)),rownames = F)
+```
+
+
+```{r v1.1 plots}
+ggplot_enrichment(result_sLDSC, title = "")
+ggplot_log2_enrichment(result_sLDSC, title = "")
+```
+
 ## **Torus**
 
 ### GWAS and m6A annotations:
-* BMI, HDL, Height, LDL, RA, and Schizophrenia GWAS are located at `RCC:/project2/xinhe/kevinluo/GWAS/GWAS_summary_stats/GWAS_collection/GWAS_raw` 
+* Asthma, BMI, HDL, Height, LDL, RA, and Schizophrenia GWAS are located at `RCC:/project2/xinhe/kevinluo/GWAS/GWAS_summary_stats/GWAS_collection/GWAS_raw` 
 * The Intelligence GWAS is located at `RCC:/project2/xinhe/kevinluo/GWAS/GWAS_summary_stats/GWAS_from_Min/raw_data` 
 * CAD, blood pressure, and IBD GWAS are located at `RCC:/project2/compbio/gwas_summary_statistics`
 * The liftOver hg19 m6A annotations are located at `RCC:/project2/xinhe/cdu/torus/annot/Xiao/hg19`
 * GWAS data suitable for Torus can be found here `RCC:/project2/xinhe/cdu/GWAS/Xiao_torus_format`
 
 There are two BMI GWAS datasets: `BMI_GWAS_fromScott.txt.gz` and `BMI_GWAS_raw`. The `BMI_GWAS_raw` dataset was missing the chromosome and position data, so the missing SNP positions were taken from `BMI_GWAS_fromScott.txt.gz`. Of the 2554637 SNPs reported in `BMI_GWAS_raw`, 2092511 matched those in `BMI_GWAS_fromScott.txt.gz`.
+
+Running Torus on T2D GWAS failed because too few T2D variants were matched - only 10,428 out of 2,470,851 variants were matched.
 
 ```{r torus annotations and traits}
 annot_list <- c("brain", "heart", "kidney", "liver", "lung", "muscle", "placenta", "stomach")
